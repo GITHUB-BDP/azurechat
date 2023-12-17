@@ -56,7 +56,7 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: Nextjs-site
-          path: release.zip
+          path: ./site-deploy/Nextjs-site.zip
   deploy:
     runs-on: ubuntu-latest
     needs: build
@@ -71,7 +71,7 @@ jobs:
           name: Nextjs-site
 
       - name: Unzip artifact for deployment
-        run: unzip release.zip
+        run: unzip ./site-deploy/Nextjs-site.zip
       
       - name: 'Deploy to Azure Web App'
         id: deploy-to-webapp
