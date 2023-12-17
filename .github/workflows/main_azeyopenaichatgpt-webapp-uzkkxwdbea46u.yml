@@ -69,9 +69,13 @@ jobs:
         uses: actions/download-artifact@v3
         with:
           name: Nextjs-site
-
+          
+      - name: 🔍 Diagnostics
+        run: |
+          ls 
+          
       - name: Unzip artifact for deployment
-        run: unzip ./site-deploy/Nextjs-site.zip
+        run: unzip Nextjs-site.zip
       
       - name: 'Deploy to Azure Web App'
         id: deploy-to-webapp
